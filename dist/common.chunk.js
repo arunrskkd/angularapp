@@ -59,7 +59,7 @@ var AsyncSubject = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         _super.prototype.complete.call(this);
     };
     return AsyncSubject;
-}(__WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]));
+}(__WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]));
 //# sourceMappingURL=AsyncSubject.js.map 
 
 
@@ -174,7 +174,7 @@ var ReplaySubject = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         return _events;
     };
     return ReplaySubject;
-}(__WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]));
+}(__WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]));
 var ReplayEvent = /*@__PURE__*/ (/*@__PURE__*/ function () {
     function ReplayEvent(time, value) {
         this.time = time;
@@ -4748,7 +4748,7 @@ var WebSocketSubject = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         else {
             _super.call(this);
             this.WebSocketCtor = __WEBPACK_IMPORTED_MODULE_4__util_root__["a" /* root */].WebSocket;
-            this._output = new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]();
+            this._output = new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]();
             if (typeof urlConfigOrSource === 'string') {
                 this.url = urlConfigOrSource;
             }
@@ -4816,7 +4816,7 @@ var WebSocketSubject = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         if (!this.source) {
             this.destination = new __WEBPACK_IMPORTED_MODULE_5__ReplaySubject__["a" /* ReplaySubject */]();
         }
-        this._output = new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]();
+        this._output = new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]();
     };
     // TODO: factor this out to be a proper Operator/Subscriber implementation and eliminate closures
     WebSocketSubject.prototype.multiplex = function (subMsg, unsubMsg, messageFilter) {
@@ -4966,7 +4966,7 @@ var WebSocketSubject = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         }
     };
     return WebSocketSubject;
-}(__WEBPACK_IMPORTED_MODULE_0__Subject__["a" /* AnonymousSubject */]));
+}(__WEBPACK_IMPORTED_MODULE_0__Subject__["AnonymousSubject"]));
 //# sourceMappingURL=WebSocketSubject.js.map 
 
 
@@ -13084,7 +13084,7 @@ var GroupBySubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
             element = value;
         }
         if (!group) {
-            group = this.subjectSelector ? this.subjectSelector() : new __WEBPACK_IMPORTED_MODULE_3__Subject__["b" /* Subject */]();
+            group = this.subjectSelector ? this.subjectSelector() : new __WEBPACK_IMPORTED_MODULE_3__Subject__["Subject"]();
             groups.set(key, group);
             var groupedObservable = new GroupedObservable(key, group, this);
             this.destination.next(groupedObservable);
@@ -14392,8 +14392,8 @@ function plucker(props, length) {
  */
 function publish(selector) {
     return selector ?
-        Object(__WEBPACK_IMPORTED_MODULE_1__multicast__["a" /* multicast */])(function () { return new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */](); }, selector) :
-        Object(__WEBPACK_IMPORTED_MODULE_1__multicast__["a" /* multicast */])(new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]());
+        Object(__WEBPACK_IMPORTED_MODULE_1__multicast__["a" /* multicast */])(function () { return new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"](); }, selector) :
+        Object(__WEBPACK_IMPORTED_MODULE_1__multicast__["a" /* multicast */])(new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]());
 }
 //# sourceMappingURL=publish.js.map 
 
@@ -14698,7 +14698,7 @@ var RepeatWhenSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         return this;
     };
     RepeatWhenSubscriber.prototype.subscribeToRetries = function () {
-        this.notifications = new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]();
+        this.notifications = new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]();
         var retries = Object(__WEBPACK_IMPORTED_MODULE_1__util_tryCatch__["a" /* tryCatch */])(this.notifier)(this.notifications);
         if (retries === __WEBPACK_IMPORTED_MODULE_2__util_errorObject__["a" /* errorObject */]) {
             return _super.prototype.complete.call(this);
@@ -14859,7 +14859,7 @@ var RetryWhenSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
             var retries = this.retries;
             var retriesSubscription = this.retriesSubscription;
             if (!retries) {
-                errors = new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]();
+                errors = new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]();
                 retries = Object(__WEBPACK_IMPORTED_MODULE_1__util_tryCatch__["a" /* tryCatch */])(this.notifier)(errors);
                 if (retries === __WEBPACK_IMPORTED_MODULE_2__util_errorObject__["a" /* errorObject */]) {
                     return _super.prototype.error.call(this, __WEBPACK_IMPORTED_MODULE_2__util_errorObject__["a" /* errorObject */].e);
@@ -17027,7 +17027,7 @@ var WindowSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     __extends(WindowSubscriber, _super);
     function WindowSubscriber(destination) {
         _super.call(this, destination);
-        this.window = new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]();
+        this.window = new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]();
         destination.next(this.window);
     }
     WindowSubscriber.prototype.notifyNext = function (outerValue, innerValue, outerIndex, innerIndex, innerSub) {
@@ -17059,7 +17059,7 @@ var WindowSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
             prevWindow.complete();
         }
         var destination = this.destination;
-        var newWindow = this.window = new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]();
+        var newWindow = this.window = new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]();
         destination.next(newWindow);
     };
     return WindowSubscriber;
@@ -17164,7 +17164,7 @@ var WindowCountSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         this.destination = destination;
         this.windowSize = windowSize;
         this.startWindowEvery = startWindowEvery;
-        this.windows = [new __WEBPACK_IMPORTED_MODULE_1__Subject__["b" /* Subject */]()];
+        this.windows = [new __WEBPACK_IMPORTED_MODULE_1__Subject__["Subject"]()];
         this.count = 0;
         destination.next(this.windows[0]);
     }
@@ -17182,7 +17182,7 @@ var WindowCountSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
             windows.shift().complete();
         }
         if (++this.count % startWindowEvery === 0 && !this.closed) {
-            var window_1 = new __WEBPACK_IMPORTED_MODULE_1__Subject__["b" /* Subject */]();
+            var window_1 = new __WEBPACK_IMPORTED_MODULE_1__Subject__["Subject"]();
             windows.push(window_1);
             destination.next(window_1);
         }
@@ -17292,7 +17292,7 @@ var CountedSubject = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         configurable: true
     });
     return CountedSubject;
-}(__WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]));
+}(__WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]));
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -17545,7 +17545,7 @@ var WindowToggleSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
                 return this.error(__WEBPACK_IMPORTED_MODULE_3__util_errorObject__["a" /* errorObject */].e);
             }
             else {
-                var window_1 = new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]();
+                var window_1 = new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]();
                 var subscription = new __WEBPACK_IMPORTED_MODULE_1__Subscription__["a" /* Subscription */]();
                 var context = { window: window_1, subscription: subscription };
                 this.contexts.push(context);
@@ -17717,7 +17717,7 @@ var WindowSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         if (prevWindow) {
             prevWindow.complete();
         }
-        var window = this.window = new __WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]();
+        var window = this.window = new __WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]();
         this.destination.next(window);
         var closingNotifier = Object(__WEBPACK_IMPORTED_MODULE_1__util_tryCatch__["a" /* tryCatch */])(this.closingSelector)();
         if (closingNotifier === __WEBPACK_IMPORTED_MODULE_2__util_errorObject__["a" /* errorObject */]) {
@@ -18949,7 +18949,7 @@ var HotObservable = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
         }
     };
     return HotObservable;
-}(__WEBPACK_IMPORTED_MODULE_0__Subject__["b" /* Subject */]));
+}(__WEBPACK_IMPORTED_MODULE_0__Subject__["Subject"]));
 /*@__PURE__*/ Object(__WEBPACK_IMPORTED_MODULE_3__util_applyMixins__["a" /* applyMixins */])(HotObservable, [__WEBPACK_IMPORTED_MODULE_2__SubscriptionLoggable__["a" /* SubscriptionLoggable */]]);
 //# sourceMappingURL=HotObservable.js.map 
 
